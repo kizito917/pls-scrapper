@@ -4,11 +4,21 @@ const cheerio = require("cheerio");
 //const xlsx = require("xlsx");
 const url = "https://www.legis.state.pa.us/cfdocs/admin/ld/gen_search.cfm?office=All&agency=HSE";
 const puppeteer = require('puppeteer');
+require("dotenv").config();
 
 const callScrapper = async (res) => {
     const browser = await puppeteer.launch({
-        headless: "new",
-    });
+        args: [
+          "--disable-setuid-sandbox",
+          "--no-sandbox",
+          "--single-process",
+          "--no-zygote",
+        ],
+        executablePath:
+          process.env.NODE_ENV === "production"
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
+      });
     try {
 
     const page = await browser.newPage();
