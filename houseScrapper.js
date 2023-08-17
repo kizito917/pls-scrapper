@@ -30,14 +30,18 @@ const callScrapper = async (res) => {
 
     await page.waitForTimeout(2000);
     await page.hover("#getEmail button");
+    console.log('step 1 done');
     await page.waitForTimeout(1000);
     await page.click("#getEmail button");
+    console.log('step 2 done');
 
     await page.waitForTimeout(3000);
 
     const html = await page.evaluate(() => document.body.innerHTML);
+    console.log('step 3 done');
 
     const $ = cheerio.load(html);
+    console.log('step 4 done');
     let output = [];
     const emailRegex = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 
