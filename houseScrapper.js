@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const callScrapper = async (res) => {
     const browser = await puppeteer.launch({
-        //headless: "new",
+        headless: "new",
         /*args: [
           "--disable-setuid-sandbox",
           "--no-sandbox",
@@ -26,7 +26,7 @@ const callScrapper = async (res) => {
 
     console.log('Step 0 done');
     await page.goto(url, {
-      waitUntil: "networkidle2"
+      waitUntil: "networkidle0"
     });
 
     await page.waitForTimeout(2000);
