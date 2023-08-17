@@ -25,7 +25,7 @@ const callScrapper = async (res) => {
     const page = await browser.newPage();
 
     await page.goto(url, {
-      waitUntil: "networkidle2"
+      waitUntil: "networkidle0"
     });
 
     await page.waitForTimeout(2000);
