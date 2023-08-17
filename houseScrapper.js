@@ -8,6 +8,7 @@ require("dotenv").config();
 
 const callScrapper = async (res) => {
     const browser = await puppeteer.launch({
+        headless: "new",
         args: [
           "--disable-setuid-sandbox",
           "--no-sandbox",
