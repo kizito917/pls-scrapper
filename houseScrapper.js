@@ -25,7 +25,8 @@ const callScrapper = async (res) => {
 
     console.log('Step 0 done');
     await page.goto(url, {
-      waitUntil: "domcontentloaded"
+      waitUntil: "domcontentloaded",
+      timeout: 60000,
     });
 
     await page.waitForTimeout(2000);
