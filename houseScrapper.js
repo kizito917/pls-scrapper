@@ -25,8 +25,7 @@ const callScrapper = async (res) => {
 
     console.log('Step 0 done');
     await page.goto(url, {
-      waitUntil: "domcontentloaded",
-      timeout: 60000,
+      waitUntil: "domcontentloaded"
     });
 
     await page.waitForTimeout(2000);
@@ -35,7 +34,7 @@ const callScrapper = async (res) => {
     await page.waitForTimeout(1000);
     await page.click("#getEmail button");
     console.log('step 2 done');
-
+    
     await page.waitForNavigation({
         waitUntil: "networkidle0",
         timeout: 60000,
@@ -44,6 +43,7 @@ const callScrapper = async (res) => {
     await page.waitForTimeout(3000);
 
     const html = await page.evaluate(() => document.body.innerHTML);
+    console.log(html);
     console.log('step 3 done');
 
     const $ = cheerio.load(html);
