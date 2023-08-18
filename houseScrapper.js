@@ -36,13 +36,13 @@ const callScrapper = async (res) => {
     await page.click("#getEmail button");
     console.log('step 2 done');
     
-    await page.waitForNavigation({
-        waitUntil: "networkidle0",
-        timeout: 60000,
-    })
-    console.log('page refresh has been completed');
+    // await page.waitForNavigation({
+    //     waitUntil: "networkidle0",
+    //     timeout: 60000,
+    // })
+    // console.log('page refresh has been completed');
     await page.waitForTimeout(3000);
-
+    await page.screenshot({ path: './result.png' });
     const html = await page.evaluate(() => document.body.innerHTML);
     console.log(html);
     console.log('step 3 done');
