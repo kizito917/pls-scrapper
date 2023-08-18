@@ -20,9 +20,8 @@ const callScrapper = async (res) => {
             ? process.env.PUPPETEER_EXECUTABLE_PATH
             : puppeteer.executablePath(),
       });
+      const page = await browser.newPage();
     try {
-
-    const page = await browser.newPage();
 
     console.log('Step 0 done');
     await page.goto(url, {
