@@ -9,12 +9,12 @@ require("dotenv").config();
 const callScrapper = async (res) => {
     const browser = await puppeteer.launch({
         headless: "new",
-        args: [
-          "--disable-setuid-sandbox",
-          "--no-sandbox",
-          "--single-process",
-          "--no-zygote",
-        ],
+        // args: [
+        //   "--disable-setuid-sandbox",
+        //   "--no-sandbox",
+        //   "--single-process",
+        //   "--no-zygote",
+        // ],
         executablePath:
           process.env.NODE_ENV === "production"
             ? process.env.PUPPETEER_EXECUTABLE_PATH
@@ -97,7 +97,6 @@ const callScrapper = async (res) => {
   } catch (err) {
     console.error("Error:", err);
     res.send(`Something went wrong: ${err}`);
-  } finally {
     await browser.close();
   }
 }
