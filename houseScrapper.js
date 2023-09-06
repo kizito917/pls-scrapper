@@ -35,7 +35,6 @@ const callScrapper = async (res) => {
             : puppeteer.executablePath(),
     });
     const page = await browser.newPage();
-      
     await page.goto(url, {
         waitUntil: "networkidle2"
     });
