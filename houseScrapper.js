@@ -18,7 +18,7 @@ puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
 const callScrapper = async (res) => {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: "new",
         // args: [
         //   "--disable-setuid-sandbox",
         //   "--no-sandbox",
